@@ -1,18 +1,19 @@
-OwnCardsNum = int(input())  # 상근이가 가지고 있는 카드의 개수
-OwnCardsList = set(map(int, input().split()))  # 상근이의 카드를 집합으로 받음
+import sys
 
-CardsNum = int(input())  # 확인해야 할 카드의 개수
-CardsList = list(map(int, input().split()))  # 확인할 카드 리스트
+# 입력 받기
+OwnCardsNum = int(sys.stdin.readline())  # 상근이가 가지고 있는 카드의 개수
+OwnCardsList = set(map(int, sys.stdin.readline().split()))  # 상근이의 카드 리스트를 set으로
 
-# 결과를 저장할 리스트
+CardsNum = int(sys.stdin.readline())  # 확인해야 할 카드의 개수
+CardsList = map(int, sys.stdin.readline().split())  # 확인할 카드 리스트
+
+# 결과를 바로 출력 (한 번에 처리하지 않고 줄여가면서 처리)
 result = []
-
-# 각 카드가 상근이의 카드 리스트에 있는지 확인
 for card in CardsList:
-    if card in OwnCardsList:  # 상근이의 카드에 있다면
+    if card in OwnCardsList:
         result.append('1')
-    else:  # 없다면
+    else:
         result.append('0')
 
-# 결과 출력
+# 최종적으로 한번에 출력
 print(' '.join(result))
